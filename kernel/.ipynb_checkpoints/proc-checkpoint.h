@@ -105,11 +105,4 @@ struct proc {
   struct file *ofile[NOFILE];  // Open files
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
-    
-    int ticks;                 //警报时钟周期
-    int ticks_cnt;             //已过时钟周期
-    uint64 handler;            //中断地址
-    uint64 tick_epc;           //地址寄存器的值
-    struct trapframe alarm_context;   //保存陷入前的各种寄存器等
-    int handler_exec;          //是否已经在处理程序
 };

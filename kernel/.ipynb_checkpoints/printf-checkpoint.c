@@ -132,16 +132,3 @@ printfinit(void)
   initlock(&pr.lock, "pr");
   pr.locking = 1;
 }
-
-void 
-backtrace(){
-  //获取当前栈指针的地址
-  printf("backtrace: \n");
-  uint64 fp = r_fp();
-  uint64 up = PGROUNDUP(fp);
-  while(fp<up){ 
-    uint64 *frame  = (uint64 *) fp;
-    printf("%p \n",frame[-1]);
-    fp = frame[-2];
-  }
-}
